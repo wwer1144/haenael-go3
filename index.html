@@ -113,8 +113,8 @@
       border: 1px solid rgba(148,163,184,0.7);
       padding: 6px 8px;
       text-align: center;
-      height: 56px;          /* 셀 높이 통일 */
-      vertical-align: top;   /* 날짜는 위쪽 정렬 */
+      height: 56px;          /* 달력 셀 높이 통일 */
+      vertical-align: top;   /* 날짜 숫자를 위쪽으로 */
     }
     table th {
       background: rgba(15,23,42,0.9);
@@ -183,6 +183,79 @@
       font-size: 12px;
       color: #9ca3af;
       text-align: left;
+    }
+
+    /* APPLY 카드 고급 버전 */
+    .apply-card {
+      margin-top: 28px;
+      border-radius: 22px;
+      padding: 22px 22px 24px;
+      background: radial-gradient(circle at top left, rgba(74,222,128,0.25), rgba(6,78,59,0.96));
+      border: 1px solid rgba(45,212,191,0.8);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.8);
+    }
+    .apply-inner {
+      border-radius: 18px;
+      padding: 18px 18px 18px;
+      background: radial-gradient(circle at top, #020617 0%, #022c22 45%, #020617 100%);
+      border: 1px solid rgba(74,222,128,0.35);
+    }
+    .apply-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .apply-list {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+    .apply-cta-wrap {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .apply-btn-main {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(90deg,#a3ff52,#4bff84);
+      color: #022c22;
+      font-weight: 800;
+      font-size: 15px;
+      text-decoration: none;
+      box-shadow: 0 14px 30px rgba(22,163,74,0.65);
+      transition: transform .08s ease-out, box-shadow .08s ease-out, filter .08s;
+    }
+    .apply-btn-main span {
+      font-size: 13px;
+      font-weight: 600;
+      opacity: .9;
+    }
+    .apply-btn-main:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(22,163,74,0.85);
+      filter: brightness(1.02);
+    }
+    .apply-btn-sub {
+      font-size: 13px;
+      color: #bbf7d0;
+      text-align: center;
+    }
+    .apply-contact {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #e5e7eb;
+    }
+    .apply-contact b {
+      color: #6ee7b7;
     }
   </style>
 </head>
@@ -472,7 +545,7 @@
       </details>
     </section>
 
-    <!-- 연간 일정 -->
+    <!-- 연간 일정 (달력) -->
     <section class="card">
       <div class="section-label">Schedule</div>
       <h2>겨울방학 해낼 고3 일정 (요약)</h2>
@@ -490,14 +563,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td></td><td>29</td><td>30</td><td>31</td><td>1<br>신정</td><td>2</td><td>3</td></tr>
-          <tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
-          <tr><td>
-  <div>11</div>
-  <div style="font-size:11px;margin-top:2px;">고3 동기부여 세미나(예정)</div>
-</td>><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
-          <tr><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td></tr>
-          <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+          <tr>
+            <td></td><td><div>29</div></td><td><div>30</div></td><td><div>31</div></td>
+            <td><div>1</div><div style="font-size:11px;margin-top:2px;">신정</div></td>
+            <td><div>2</div></td><td><div>3</div></td>
+          </tr>
+          <tr>
+            <td><div>4</div></td><td><div>5</div></td><td><div>6</div></td>
+            <td><div>7</div></td><td><div>8</div></td><td><div>9</div></td><td><div>10</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div>11</div>
+              <div style="font-size:11px;margin-top:2px;">고3 동기부여 세미나(예정)</div>
+            </td>
+            <td><div>12</div></td><td><div>13</div></td><td><div>14</div></td>
+            <td><div>15</div></td><td><div>16</div></td><td><div>17</div></td>
+          </tr>
+          <tr>
+            <td><div>18</div></td><td><div>19</div></td><td><div>20</div></td>
+            <td><div>21</div></td><td><div>22</div></td><td><div>23</div></td><td><div>24</div></td>
+          </tr>
+          <tr>
+            <td><div>25</div></td><td><div>26</div></td><td><div>27</div></td>
+            <td><div>28</div></td><td><div>29</div></td><td><div>30</div></td><td><div>31</div></td>
+          </tr>
         </tbody>
       </table>
 
@@ -509,25 +599,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>
-  <div>1</div>
-  <div style="font-size:11px; margin-top:2px;">
-    학부모 초청 세미나(예정)
-  </div>
-</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
-          <tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
-          <tr><td>
-  <div>15</div>
-  <div style="font-size:11px; margin-top:2px;">
-    윈터스쿨 자체 모의고사(예정)
-  </div>
-</td><td>16</td><td>17<br>설날</td><td>18</td><td>19</td><td>20</td><td>21</td></tr>
-          <tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>
-  <div>28</div>
-  <div style="font-size:11px; margin-top:2px;">
-    윈터스쿨 종강
-  </div>
-</td>></tr>
+          <tr>
+            <td>
+              <div>1</div>
+              <div style="font-size:11px;margin-top:2px;">학부모 초청 세미나(예정)</div>
+            </td>
+            <td><div>2</div></td><td><div>3</div></td><td><div>4</div></td>
+            <td><div>5</div></td><td><div>6</div></td><td><div>7</div></td>
+          </tr>
+          <tr>
+            <td><div>8</div></td><td><div>9</div></td><td><div>10</div></td>
+            <td><div>11</div></td><td><div>12</div></td><td><div>13</div></td><td><div>14</div></td>
+          </tr>
+          <tr>
+            <td>
+              <div>15</div>
+              <div style="font-size:11px;margin-top:2px;">윈터스쿨 자체 모의고사(예정)</div>
+            </td>
+            <td><div>16</div></td>
+            <td><div>17</div><div style="font-size:11px;margin-top:2px;">설날</div></td>
+            <td><div>18</div></td><td><div>19</div></td><td><div>20</div></td><td><div>21</div></td>
+          </tr>
+          <tr>
+            <td><div>22</div></td><td><div>23</div></td><td><div>24</div></td>
+            <td><div>25</div></td><td><div>26</div></td><td><div>27</div></td>
+            <td>
+              <div>28</div>
+              <div style="font-size:11px;margin-top:2px;">윈터스쿨 종강</div>
+            </td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -571,7 +671,7 @@
       <details>
         <summary>주간 상담 보고서 예시 보기</summary>
         <p style="margin-top:4px;">
-          <b>상담 주간: 7/22(월) ~ 7/24(수) · 학생 이름: ○○○ · 담당: 박원욱</b>
+          <b>상담 주간: 7/22(월) ~ 7/24(수) · 학생 이름: ○○○</b>
         </p>
         <p style="margin-top:4px;font-size:13px;">
           <b>7/22(월)</b> – 최근 2주 학습 흐름을 점검하고, 국어 독서에서 느끼는 난도 상승과 수학 고난도 풀이 체력 부족을 확인했습니다.
@@ -728,9 +828,47 @@
       </div>
     </section>
 
+    <!-- APPLY CTA 섹션 -->
+    <section class="apply-card">
+      <div class="apply-inner">
+        <div class="section-label">APPLY</div>
+        <div class="apply-title">대상 및 신청 안내</div>
+
+        <ul class="apply-list">
+          <li>대상 : 인천 검단 지역 고3</li>
+          <li>수능·내신·논술을 한 흐름 안에서 관리 받고 싶은 학생</li>
+          <li>주간 보고서·피드백까지 견디고 따라올 의지가 있는 학생</li>
+        </ul>
+
+        <p class="notice" style="margin-top:6px;">
+          * 검단 지역 고2는 이번 프로젝트에서 모집하지 않습니다.
+        </p>
+
+        <div class="apply-cta-wrap">
+          <!-- TODO: 아래 href를 네 구글폼 또는 카카오톡 채널 링크로 교체해라 -->
+          <a class="apply-btn-main"
+             href="https://forms.gle/YOUR_GOOGLE_FORM_ID"
+             target="_blank" rel="noopener noreferrer">
+            해낼 고3 상담·등록 신청하기
+            <span>QR로 접속했다면 여기를 눌러 바로 신청하세요</span>
+          </a>
+
+          <div class="apply-btn-sub">
+            또는 카카오톡으로 문의하실 분은<br>
+            <span style="opacity:.9;">상담 링크(카카오 채널 / 1:1 채팅)를 같은 자리 href에 넣어 사용하셔도 됩니다.</span>
+          </div>
+        </div>
+
+        <div class="apply-contact">
+          📞 문의 : <b>010-0000-0000</b><br>
+          우독학원 해낼 고3 전담 강사 박원욱
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
       우독학원 검단캠퍼스 · 해낼 고3 프로젝트<br>
-      문의 : 032-719-4054 <br>
+      문의 : 032-719-4054 / (상담 전용) 010-0000-0000<br>
       주소 : 인천 서구 원당대로 676, 6층 우독학원 검단캠퍼스<br>
       <span style="color:#e5e7eb;">※ 페이지 내용과 시간표는 학원 및 강사의 사정에 따라 일부 변경될 수 있습니다.</span>
     </footer>
